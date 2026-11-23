@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#160f1b">
+<title>For Dikshya — Everything I Couldn't Say</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=Parisienne&display=swap');
+:root{--bg:#160f1b;--panel:#211725;--pink:#efadc5;--rose:#c87899;--cream:#f7eaf0;--muted:#c7b5c1;--green:#a9c9ae;--gold:#e8c59b}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--cream);font-family:'DM Sans',sans-serif;line-height:1.75;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 15% 15%,#51283b55,transparent 40%),radial-gradient(ellipse at 85% 65%,#3b294855,transparent 42%),linear-gradient(145deg,#160f1b,#211522 55%,#120e18)}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,#c87899,#ffd9e8);z-index:20}
+nav{position:fixed;top:0;left:0;right:0;z-index:15;padding:15px 5vw;display:flex;justify-content:space-between;align-items:center;background:#160f1bcc;backdrop-filter:blur(14px);border-bottom:1px solid #ffffff0c}
+.brand{font-family:'Cormorant Garamond',serif;letter-spacing:.14em;color:var(--pink);font-size:19px}
+.navhint{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#c7b5c1}
+section{padding:110px 7vw;position:relative}
+.hero{min-height:100svh;display:grid;place-items:center;text-align:center;padding-top:120px;overflow:hidden}
+.hero-inner{max-width:850px;position:relative;z-index:2}
+.eyebrow{color:var(--pink);letter-spacing:.3em;text-transform:uppercase;font-size:11px}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:500;line-height:1.08}
+h1{font-size:clamp(58px,11vw,120px);margin:18px 0 12px;color:#f8dce7}
+h2{font-size:clamp(38px,6vw,68px);margin:0 0 20px}
+h3{font-size:29px;color:var(--pink);margin:0 0 12px}
+.subtitle{font-family:'Cormorant Garamond',serif;font-size:clamp(21px,3vw,29px);color:#e7cbd8;max-width:680px;margin:18px auto 30px}
+.soft{color:var(--muted)}
+.btn{border:1px solid #e8aec6;background:linear-gradient(135deg,#eeb4ca,#c87899);color:#291622;border-radius:999px;padding:14px 25px;font-weight:600;letter-spacing:.04em;box-shadow:0 8px 35px #d77fa633;transition:.3s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 42px #d77fa655}
+.ghost{background:transparent;color:var(--cream);border:1px solid #ffffff42;box-shadow:none}
+.hero-note{margin-top:18px;font-size:12px;color:#bca9b7}
+.hero-flower{width:180px;height:220px;margin:0 auto 12px;position:relative;filter:drop-shadow(0 0 22px #efadc544);animation:float 5s ease-in-out infinite}
+.stem{position:absolute;width:5px;height:125px;background:linear-gradient(90deg,#52785b,#a4c69c);left:89px;top:85px;border-radius:8px;transform:rotate(3deg)}
+.leaf{position:absolute;width:57px;height:25px;background:linear-gradient(135deg,#9abf91,#345d43);border-radius:100% 0 100% 0;top:150px;left:35px;transform:rotate(18deg)}
+.leaf.two{left:89px;top:174px;transform:scaleX(-1) rotate(18deg)}
+.petal{position:absolute;bottom:92px;left:50%;width:45px;height:105px;transform-origin:bottom center;border-radius:70% 70% 35% 35%;background:linear-gradient(160deg,#ffd8e6 0%,#e98eb2 55%,#a94c76 100%);box-shadow:inset 5px 0 10px #fff5}
+.p1{transform:translateX(-50%) rotate(-34deg)}.p2{transform:translateX(-50%) rotate(-17deg);height:120px}.p3{transform:translateX(-50%);height:128px;background:linear-gradient(160deg,#ffe2ed,#f2a5c2 60%,#b95780)}.p4{transform:translateX(-50%) rotate(17deg);height:120px}.p5{transform:translateX(-50%) rotate(34deg)}
+@keyframes float{50%{transform:translateY(-9px) rotate(1deg)}}
+.petal-fall{position:fixed;top:-30px;width:12px;height:20px;border-radius:80% 10% 80% 10%;background:#efadc5aa;z-index:0;pointer-events:none;animation:fall linear infinite}
+@keyframes fall{to{transform:translate3d(100px,110vh,0) rotate(650deg);opacity:.1}}
+.wrap{max-width:950px;margin:auto}
+.center{text-align:center}
+.kicker{color:var(--rose);text-transform:uppercase;letter-spacing:.22em;font-size:11px;margin-bottom:14px}
+.lead{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3vw,29px);color:#f0dce5;line-height:1.55}
+p{color:#d8c8d2}
+.story-card{background:linear-gradient(145deg,#ffffff0b,#ffffff04);border:1px solid #ffffff13;border-radius:22px;padding:clamp(24px,5vw,48px);margin:28px auto;box-shadow:0 20px 70px #0002}
+.story-card p{font-size:16px}
+.quote{font-family:'Cormorant Garamond',serif;font-size:clamp(27px,4vw,43px);line-height:1.3;color:#f5c9da;text-align:center;margin:35px auto;max-width:800px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.mini{background:#ffffff08;border:1px solid #ffffff12;border-radius:18px;padding:25px}
+.icon{font-size:27px;margin-bottom:12px}
+.diagram{margin-top:35px;padding:clamp(15px,4vw,35px);border:1px solid #ffffff18;border-radius:26px;background:#1e1624}
+.diagram svg{width:100%;height:auto;display:block;overflow:visible}
+.node{fill:#302138;stroke:#d88eac;stroke-width:1.5}
+.node-title{fill:#ffe4ee;font:600 16px 'DM Sans',sans-serif}
+.node-copy{fill:#cdb9c7;font:12px 'DM Sans',sans-serif}
+.center-node{fill:#713c59;stroke:#f3bfd3;stroke-width:2}
+.edge{stroke:#d58eac;stroke-width:1.5;stroke-dasharray:5 7;fill:none;animation:dash 14s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-120}}
+.pulse{animation:pulse 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes pulse{50%{filter:drop-shadow(0 0 9px #f2a9c8);opacity:.72}}
+.timeline{border-left:1px solid #c87899;margin:35px auto;padding-left:28px;max-width:700px}
+.timeline-item{position:relative;margin:0 0 30px}
+.timeline-item:before{content:"";position:absolute;width:10px;height:10px;border-radius:50%;background:var(--pink);left:-34px;top:9px;box-shadow:0 0 15px #efadc5}
+.promise-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:25px}
+.promise{padding:17px;border:1px solid #ffffff16;background:#ffffff08;border-radius:14px;color:#eadbe3}
+.promise b{color:var(--pink)}
+.garden{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:25px}
+.garden div{padding:22px 10px;text-align:center;border-radius:15px;background:#ffffff09;border:1px solid #ffffff12}
+.garden span{display:block;font-size:28px;margin-bottom:7px}
+.final{min-height:100svh;display:grid;place-items:center;text-align:center;background:radial-gradient(ellipse at center,#51263c77,transparent 65%)}
+.final-inner{max-width:780px;width:100%}
+.final h2{color:#f6cfdd}
+.final-question{font-size:clamp(29px,5vw,48px);font-family:'Cormorant Garamond',serif;color:#fff;margin:18px 0}
+.choice-row{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;margin:35px 0 20px}
+#yesBtn{font-size:18px;padding:17px 43px;min-width:145px;transform:scale(var(--yes-scale,1));transform-origin:center;z-index:2;transition:transform .35s,box-shadow .35s}
+#noBtn{font-size:15px;padding:13px 29px;background:#ffffff08;border:1px solid #ffffff45;color:#f4e8ee;border-radius:999px;transition:.25s}
+#noBtn:hover{background:#ffffff14}
+#response{min-height:125px;max-width:650px;margin:22px auto 0;padding:20px;border-radius:18px;background:#ffffff09;border:1px solid #ffffff12;display:none}
+#response.show{display:block;animation:appear .6s ease}
+@keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+footer{text-align:center;padding:35px 20px;color:#9f8c9b;font-size:12px;letter-spacing:.08em}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s,transform .9s}
+.reveal.visible{opacity:1;transform:none}
+.smallline{width:55px;height:1px;background:var(--rose);margin:25px auto}
+@media(max-width:650px){section{padding:85px 6vw}.two-col{grid-template-columns:1fr}.promise-list{grid-template-columns:1fr}.garden{grid-template-columns:repeat(2,1fr)}.navhint{display:none}.hero-flower{transform:scale(.85)}.node-title{font-size:19px}.node-copy{font-size:14px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<nav><div class="brand">FOR DIKSHYA</div><div class="navhint">A little piece of my heart</div></nav>
+<div id="petals"></div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-flower" aria-label="A pink tulip">
+      <div class="stem"></div><div class="leaf"></div><div class="leaf two"></div>
+      <div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div><div class="petal p4"></div><div class="petal p5"></div>
+    </div>
+    <div class="eyebrow">A letter I couldn't say out loud</div>
+    <h1>For Dikshya.</h1>
+    <div class="subtitle">There are things I have felt, things I have feared, and things I have never quite known how to put into words.</div>
+    <button class="btn" onclick="document.querySelector('#beginning').scrollIntoView({behavior:'smooth'})">Open what I couldn't say <span aria-hidden="true">♡</span></button>
+    <div class="hero-note">Take your time. This is from my heart.</div>
+  </div>
+</section>
+
+<section id="beginning">
+ <div class="wrap reveal">
+  <div class="kicker">01 — The beginning</div><h2>I wasn't looking for love.</h2>
+  <p class="lead">I didn't come talking to you with the intention of loving you, Dikshya. Honestly, I was already done with the word love.</p>
+  <div class="story-card">
+   <p>I wasn't searching for someone. I wasn't planning to fall for anyone. I thought that part of my life was already behind me.</p>
+   <p>And then, somewhere between our conversations and all the little moments, something changed. I couldn't tell you the exact day or the exact moment. I just know that one day you had become someone I cared about in a way I hadn't planned.</p>
+   <p>One thing that truly stayed with me was your transparency. You kept things clear even when I never asked you to explain. You didn't have to make a big announcement about it. It was simply the way you were, and it meant more to me than you probably know.</p>
+  </div>
+  <div class="quote">"I wasn't searching for love. Somehow, I found you."</div>
+ </div>
+</section>
+
+<section>
+ <div class="wrap reveal">
+  <div class="kicker">02 — The things I struggle to say</div><h2>My silence isn't a lack of feeling.</h2>
+  <p class="lead">कहिलेकाहीँ मनमा धेरै कुरा हुन्छन्, तर कसरी भन्ने भन्ने नै थाहा हुँदैन।</p>
+  <div class="story-card">
+   <p>Sometimes you tell me that you don't feel I'm completely clear about you, or that you wonder whether I genuinely want you.</p>
+   <p>I wish I could explain this better: my hesitation isn't because I don't want you. A lot of it comes from not knowing how to express what is happening inside me. I can feel something deeply and still struggle to find the right words.</p>
+   <p>I don't want you to have to guess. I want to learn to communicate better, because you deserve clarity, not confusion.</p>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="wrap reveal">
+  <div class="kicker">03 — The man I'm still becoming</div><h2>My biggest fear is not having everything figured out.</h2>
+  <p class="lead">I am pursuing Computer Science. I believe in what I'm learning, but I also see how quickly the world is changing.</p>
+  <div class="story-card">
+   <p>The job market is competitive. Technology keeps changing. AI and automation are reshaping work in almost every field. Sometimes I look at all of it and genuinely wonder what the future of the path I'm pursuing will look like.</p>
+   <p>I know my education matters. I know I have dedication. I am consistent, and I want to evolve. But I also know that becoming established takes time.</p>
+   <p>Somewhere in my mind, I feel that a settled man can offer a kind of security that a man who is still building himself cannot offer immediately. And that thought scares me. I don't want you to feel that you have to wait for me to become someone I haven't become yet.</p>
+   <p>But please understand the difference: I need time to build the life I dream of. I do not need to wait to care for you, respect you, make efforts, or love you.</p>
+  </div>
+  <div class="quote">"I don't need time to love you. I need time to build the life I dream of sharing."</div>
+ </div>
+</section>
+
+<section>
+ <div class="wrap reveal">
+  <div class="kicker">04 — Why I sometimes say you deserve better</div><h2>Sometimes I doubt myself.</h2>
+  <div class="story-card">
+   <p>When I say I hope you find the kind of person you deserve, please don't hear it as me asking you to leave. It comes from a place of insecurity that I don't always know how to explain.</p>
+   <p>I know there are people who might be more settled than me, more confident, more handsome, or more ready to offer a comfortable life from the very beginning. Someone else might have everything figured out already. Sometimes I struggle to look at myself and confidently say, "That person is me."</p>
+   <p>But I have dreams too. I dream of giving you a garden, a beautiful home, a car, comfort, experiences, and the little luxuries that make life beautiful. I want to build those things with hard work and patience. I am not promising that everything will appear tomorrow. I am telling you what I want to work towards.</p>
+  </div>
+  <div class="garden">
+   <div><span>🌷</span><b>A garden</b><br><small class="soft">A place to breathe</small></div>
+   <div><span>🏡</span><b>A home</b><br><small class="soft">A place to belong</small></div>
+   <div><span>🚗</span><b>Comfort</b><br><small class="soft">A life we build</small></div>
+   <div><span>✨</span><b>Experiences</b><br><small class="soft">Memories together</small></div>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="wrap reveal">
+  <div class="kicker">05 — What I can give today</div><h2>I don't want to postpone loving you.</h2>
+  <div class="two-col">
+   <div class="mini"><div class="icon">🎁</div><h3>Small efforts</h3><p>I can surprise you, give little gifts, remember details, make time, listen, and find thoughtful ways to make your ordinary days brighter.</p></div>
+   <div class="mini"><div class="icon">🌱</div><h3>Growing every day</h3><p>I don't know how to sing or dance. I don't have every talent. But I can learn, improve, create, and keep trying to become better.</p></div>
+  </div>
+  <div class="story-card">
+   <p>I may not be exceptionally talented. Apart from being a little smart and making things like this website, I sometimes feel I don't have much to show. But I can show effort. I can be thoughtful. I can make you feel appreciated.</p>
+   <p>I want to be praised by you, yes. I want more time with you. I want to feel important in your life. I want to be someone you choose, and someone who makes you feel chosen too.</p>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="wrap reveal">
+  <div class="kicker">06 — The honest, imperfect part</div><h2>Yes, I get jealous.</h2>
+  <div class="story-card">
+   <p>I want to be honest instead of pretending I never feel it. I sometimes hate hearing about another boy or your ex. Sometimes, when you mention a particular background, design, website, or creative thing you want, I feel a little ache because those are things I believe I could make for you — and I want to be the person who gets to do that.</p>
+   <p>I know jealousy is my feeling to handle. It is not a rule you have to live by, and it should never become a reason to limit your freedom. I don't want to control who you talk to or what you like. I want to feel secure, special, and close to you.</p>
+   <p>Sometimes I hold back my best efforts because I wonder whether you are happy with me. I am trying to understand that I should communicate that fear instead of letting it speak for me.</p>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="wrap reveal">
+  <div class="kicker">07 — A little family memory</div><h2>Your name has reached my home, too.</h2>
+  <div class="story-card">
+   <p>Asti, when your grandmother — my thulo momi — visited our home, my mother asked her, "Hajur, naatinīharu kasto chhan?"</p>
+   <p>She asked because she knows I like you. And, by the way, my whole family knows about you.</p>
+   <p>I felt happy about that. You aren't just someone whose name appears in my phone. You have become someone I talk about at home, someone whose mention brings a quiet happiness with it.</p>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="wrap reveal">
+  <div class="kicker">08 — Inside my heart</div><h2>Six parts of one feeling.</h2>
+  <p class="lead">These things may seem different, but they all come from one place: how much you have come to mean to me.</p>
+  <div class="diagram">
+   <svg viewBox="0 0 800 620" role="img" aria-label="A diagram connecting love, fears, ambition, feelings, promises and the future">
+    <defs><filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+    <path class="edge" d="M400 285 L205 125 M400 285 L595 125 M400 285 L170 310 M400 285 L630 310 M400 345 L220 500 M400 345 L580 500"/>
+    <g class="pulse" filter="url(#glow)"><circle class="center-node" cx="400" cy="310" r="79"/><text x="400" y="300" text-anchor="middle" class="node-title">MY LOVE</text><text x="400" y="325" text-anchor="middle" class="node-copy">for Dikshya</text></g>
+    <g><rect class="node" x="65" y="55" width="280" height="115" rx="18"/><text x="205" y="91" text-anchor="middle" class="node-title">LOVE</text><text x="205" y="119" text-anchor="middle" class="node-copy">I never planned it.</text><text x="205" y="139" text-anchor="middle" class="node-copy">Somehow, I fell for you.</text></g>
+    <g><rect class="node" x="455" y="55" width="280" height="115" rx="18"/><text x="595" y="91" text-anchor="middle" class="node-title">FEAR</text><text x="595" y="119" text-anchor="middle" class="node-copy">Am I enough?</text><text x="595" y="139" text-anchor="middle" class="node-copy">Can I give you what you deserve?</text></g>
+    <g><rect class="node" x="20" y="250" width="250" height="120" rx="18"/><text x="145" y="288" text-anchor="middle" class="node-title">AMBITION</text><text x="145" y="316" text-anchor="middle" class="node-copy">To evolve, work hard,</text><text x="145" y="336" text-anchor="middle" class="node-copy">and build our future.</text></g>
+    <g><rect class="node" x="530" y="250" width="250" height="120" rx="18"/><text x="655" y="288" text-anchor="middle" class="node-title">FEELINGS</text><text x="655" y="316" text-anchor="middle" class="node-copy">Affection, jealousy,</text><text x="655" y="336" text-anchor="middle" class="node-copy">and wanting to matter.</text></g>
+    <g><rect class="node" x="80" y="450" width="280" height="115" rx="18"/><text x="220" y="487" text-anchor="middle" class="node-title">PROMISE</text><text x="220" y="515" text-anchor="middle" class="node-copy">Honesty, loyalty, respect,</text><text x="220" y="535" text-anchor="middle" class="node-copy">and consistent effort.</text></g>
+    <g><rect class="node" x="440" y="450" width="280" height="115" rx="18"/><text x="580" y="487" text-anchor="middle" class="node-title">FUTURE</text><text x="580" y="515" text-anchor="middle" class="node-copy">A home, a garden, laughter,</text><text x="580" y="535" text-anchor="middle" class="node-copy">and growing side by side.</text></g>
+   </svg>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="wrap reveal">
+  <div class="kicker">09 — What I want you to be able to trust</div><h2>Not perfection. Intention, and action.</h2>
+  <div class="story-card">
+   <p>I cannot promise that I will never make you cry. I am human, and there may be misunderstandings or days when I fail to express myself well. But I can promise that I will take responsibility when I hurt you and make a genuine effort to repair what I have damaged.</p>
+   <p>I will never raise my hand against you. I will never cheat on you or betray your trust. Those are values I was taught, and values I choose for myself.</p>
+   <p>I want to respect you, listen to you, be honest with you, and keep learning how you need to be loved. I don't want to love you only when everything is easy. I want to work through the difficult days with patience and care.</p>
+  </div>
+  <div class="promise-list">
+   <div class="promise">♡ <b>Respect</b><br>I will respect your choices, voice, and individuality.</div>
+   <div class="promise">♡ <b>Loyalty</b><br>I will be faithful and honest with you.</div>
+   <div class="promise">♡ <b>Effort</b><br>I will keep showing up in little and meaningful ways.</div>
+   <div class="promise">♡ <b>Accountability</b><br>If I hurt you, I will listen, own it, and try to make it right.</div>
+  </div>
+  <div class="quote">"There won't always be highs. There will be ups and downs. I want to keep choosing us through both."</div>
+ </div>
+</section>
+
+<section>
+ <div class="wrap reveal center">
+  <div class="kicker">10 — Everything I couldn't say</div><h2>My uncertainty about myself<br>is not uncertainty about you.</h2>
+  <div class="story-card" style="text-align:left">
+   <p>Dikshya, I don't know when I fell for you. I don't know how someone who was already done with the word love ended up having so much to say about one person.</p>
+   <p>I don't know how to express everything I feel. Sometimes I question myself. Sometimes I question my future. Sometimes I wonder whether I am enough for you.</p>
+   <p>But I don't want you to mistake my uncertainty about myself for uncertainty about wanting you.</p>
+   <p>I might still be evolving. I might still be building my career. I might still be figuring out what life has planned for me. But I don't want to wait until I become successful to start loving you properly.</p>
+   <p>I want to love you while I build my future. I want to celebrate your little achievements, surprise you, make you smile, and be there on your ordinary days. I want to work towards the garden, the house, the car, and all those beautiful things I dream of giving you.</p>
+   <p>But before all of that, I want to give you what I can give today: my efforts, my loyalty, my honesty, my respect, and my love.</p>
+   <p>I cannot promise a life without difficult days. I can promise that I want to learn, understand, and not walk away just because things stop being easy.</p>
+   <p>I wasn't searching for love. But somehow, I found you. And if there is one thing I genuinely want to get right in this evolving, confusing, uncertain life of mine, it's us.</p>
+  </div>
+ </div>
+</section>
+
+<section class="final" id="trust">
+ <div class="final-inner reveal">
+  <div class="hero-flower" aria-hidden="true">
+   <div class="stem"></div><div class="leaf"></div><div class="leaf two"></div>
+   <div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div><div class="petal p4"></div><div class="petal p5"></div>
+  </div>
+  <div class="eyebrow">One last thing, Dikshya</div>
+  <h2>After everything I've said...</h2>
+  <div class="final-question">Can you trust me?</div>
+  <p class="lead">Not because I'm perfect. Not because I have everything figured out. But because I genuinely want to grow, love, understand you, and build something beautiful with you.</p>
+  <p class="soft">Will you give me the chance to show you that my feelings are real?</p>
+  <div class="choice-row">
+   <button class="btn" id="yesBtn">YES ❤️</button>
+   <button id="noBtn">NO</button>
+  </div>
+  <div id="response" aria-live="polite"></div>
+  <p class="hero-note">Your answer is yours. I wanted you to know what was in my heart.</p>
+ </div>
+</section>
+<footer>Made with a heart that is still learning how to say everything. <span style="color:#efadc5">♡</span> — Sujan</footer>
+
+<script>
+const petals=document.getElementById('petals');
+for(let i=0;i<19;i++){
+ const p=document.createElement('i');p.className='petal-fall';
+ p.style.left=Math.random()*100+'vw';p.style.animationDuration=(12+Math.random()*15)+'s';
+ p.style.animationDelay=(-Math.random()*25)+'s';p.style.opacity=(.2+Math.random()*.45);
+ p.style.transform=`scale(${.55+Math.random()*.8})`;petals.appendChild(p);
+}
+const progress=document.getElementById('progress');
+window.addEventListener('scroll',()=>{
+ const max=document.documentElement.scrollHeight-window.innerHeight;
+ progress.style.width=(max>0?window.scrollY/max*100:0)+'%';
+},{passive:true});
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+let noCount=0,yesScale=1;
+const yesBtn=document.getElementById('yesBtn'),noBtn=document.getElementById('noBtn'),response=document.getElementById('response');
+function showMessage(html){response.innerHTML=html;response.classList.remove('show');void response.offsetWidth;response.classList.add('show')}
+noBtn.addEventListener('click',()=>{
+ noCount++;
+ yesScale=Math.min(1+noCount*.16,2.05);
+ yesBtn.style.setProperty('--yes-scale',yesScale);
+ yesBtn.style.boxShadow=`0 8px ${32+noCount*5}px #efadc566`;
+ const messages=[
+  "Are you sure, Dikshya? 🥺 I still have so much love to show you.",
+  "I understand. I'm not asking you to decide quickly. I just hope my actions can speak more clearly than my words.",
+  "One more little reminder: you deserve honesty, respect, and a love that feels safe. Whatever your answer, that matters."
+ ];
+ showMessage(`<h3>${messages[Math.min(noCount-1,messages.length-1)]}</h3><p class="soft">You can take your time. Your choice is yours. ♡</p>`);
+});
+yesBtn.addEventListener('click',()=>{
+ showMessage(`<h2 style="color:#f5c7d8">You made my day, Dikshya. ❤️</h2><p>I won't take your trust for granted. I don't want to prove my love through a website alone. I want to show it through the little things, my efforts, my honesty, my loyalty, and the way I treat you every day.</p><p>Thank you for giving me a chance to show you the person I am becoming.</p><h3>Now let me make you smile, one ordinary day at a time.</h3>`);
+ for(let i=0;i<36;i++){
+  const p=document.createElement('i');p.className='petal-fall';
+  p.style.left=Math.random()*100+'vw';p.style.animationDuration=(5+Math.random()*7)+'s';
+  p.style.animationDelay='0s';p.style.width=(9+Math.random()*12)+'px';p.style.height=(14+Math.random()*17)+'px';
+  p.style.opacity='.8';document.body.appendChild(p);setTimeout(()=>p.remove(),13000);
+ }
+ yesBtn.disabled=true;noBtn.disabled=true;yesBtn.style.opacity='.75';noBtn.style.opacity='.45';
+});
+</script>
+</body>
+</html>
